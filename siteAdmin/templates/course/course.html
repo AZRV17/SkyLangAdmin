@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="profile-wrapper">
+        <h1 class="profile-title">Курс</h1>
+        <div class="profile-detail">
+            <h2>{{ course.name }}</h2>
+            <div class="profile-avatar">
+                <img src="{{ course.icon }}" alt="Avatar" />
+            </div>
+            <div class="profile-detail">
+                <p><strong>Описание:</strong> {{ course.description }}</p>
+                <p><strong>Язык:</strong> {{ course.language }}</p>
+                <p><strong>Рейтинг:</strong> {{ course.rating }}</p>
+                <p><strong>Автор:</strong> <span class="category">{{ course.author.login }}</span></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

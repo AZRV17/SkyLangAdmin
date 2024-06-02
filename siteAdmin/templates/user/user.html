@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="profile-wrapper">
+        <h1 class="profile-title">Пользователь</h1>
+        <div class="profile-detail">
+            <h2>{{ user.login }}</h2>
+            <div class="profile-avatar">
+                <img src="{{ user.avatar }}" alt="Avatar" />
+            </div>
+            <div class="profile-info">
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Роль:</strong> <span class="profile-role">{{ user.role }}</span></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SkyLang{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <a class="nav-link" href="{% url 'index' %}">ГЛАВНАЯ</a>
+        {% if not request.session.user_id %}
+            <a class="nav-link" href="{% url 'login' %}">ВОЙТИ</a>
+            <span class="separator">|</span>
+            <a class="nav-link" href="{% url 'register' %}">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+        {% else %}
+            <a class="nav-link" href="{% url 'logout' %}">ВЫЙТИ</a>
+        {% endif %}
+    </nav>
+</header>
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+<footer>
+    <!-- Your site footer here -->
+</footer>
+</body>
+</html>

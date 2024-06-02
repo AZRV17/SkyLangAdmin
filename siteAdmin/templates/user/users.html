@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="wrapper">
+        <h1 class="h1">ПОЛЬЗОВАТЕЛИ</h1>
+        <a class="create-btn" href="{% url 'create_user' %}">Создать</a>
+        <div class="cards">
+            {% for user in users %}
+                <div class="card">
+                    <a class="card-ref" href="{% url 'user' user.id %}">
+                        <div class="card-body">
+                            <div class="card-body-text">
+                                <h5 class="card-title">{{ user.login }}</h5>
+                                <p class="card-text">{{ user.email }}</p>
+                            </div>
+                            <div class="card-buttons">
+                                <a class="btn update-btn" href="{% url 'update_user' user.id %}">Изменить</a>
+                                <a class="btn delete-btn" href="{% url 'delete_user' user.id %}">Удалить</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="pagination">
+            {% for page_num in paginator.page_range %}
+                <a class="page {% if page_num == page_obj.number %}active{% endif %}" href="?page={{ page_num }}">{{ page_num }}</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

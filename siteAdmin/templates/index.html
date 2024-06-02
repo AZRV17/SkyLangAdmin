@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="main-wrapper">
+        <h1 class="main-title">ГЛАВНАЯ</h1>
+        {% if user %}
+            <div class="links-wrapper">
+                <a class="nav-link" href="{% url 'users' %}">ПОЛЬЗОВАТЕЛИ</a>
+                <a class="nav-link" href="{% url 'courses' %}">КУРСЫ</a>
+                <a class="nav-link" href="{% url 'comments' %}">КОММЕНТАРИИ</a>
+                <a class="nav-link" href="{% url 'exercises' %}">ЗАДАНИЯ</a>
+                <a class="nav-link" href="{% url 'lectures' %}">ЛЕКЦИИ</a>
+            </div>
+        {% else %}
+            <h1 class="main-title">Вы не вошли</h1>
+        {% endif %}
+    </div>
+{% endblock %}

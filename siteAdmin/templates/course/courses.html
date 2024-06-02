@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="wrapper">
+        <h1 class="h1">КУРСЫ</h1>
+        <a class="create-btn" href="{% url 'create_course' %}">Создать курс</a>
+        <div class="cards">
+            {% for course in courses %}
+                <div class="card">
+                    <a class="card-ref" href="{% url 'course' course.id %}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ course.name }}</h5>
+                            <p class="card-author">Автор: {{ course.author.login }}</p>
+                            <div class="card-buttons">
+                                <a class="btn update-btn" href="{% url 'update_course' course.id %}">Изменить</a>
+                                <a class="btn delete-btn" href="{% url 'delete_course' course.id %}">Удалить</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="pagination">
+            {% for page_num in paginator.page_range %}
+                <a class="page" href="?page={{ page_num }}">{{ page_num }}</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

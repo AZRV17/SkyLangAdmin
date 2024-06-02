@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="wrapper">
+        <h1 class="h1">КОММЕНТАРИИ</h1>
+        <a class="create-btn" href="{% url 'create_comment' %}">Создать</a>
+        <div class="cards">
+            {% for comment in comments %}
+                <div class="card">
+                    <a class="card-ref" href="{% url 'comment' comment.id %}">
+                        <div class="card-body">
+                            <div class="card-body-text">
+                                <h5 class="card-title">{{ comment.content|truncatechars:50 }}</h5>
+                                <p class="card-author">{{ comment.author.login }}</p>
+                            </div>
+                            <div class="card-buttons">
+                                <a class="btn update-btn" href="{% url 'update_comment' comment.id %}">Изменить</a>
+                                <a class="btn delete-btn" href="{% url 'delete_comment' comment.id %}">Удалить</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="pagination">
+            {% for page_num in paginator.page_range %}
+                <a class="page" href="?page={{ page_num }}">{{ page_num }}</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

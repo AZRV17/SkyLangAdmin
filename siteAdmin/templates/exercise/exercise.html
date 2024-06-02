@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="profile-wrapper">
+        <h1 class="profile-title">Задание</h1>
+        <div class="profile-detail">
+            <h2>{{ exercise.name }}</h2>
+            <div class="profile-detail">
+                <p><strong>Описание:</strong> {{ exercise.description }}</p>
+                <p><strong>Первый вариант:</strong> {{ exercise.firstVariant }}</p>
+                <p><strong>Второй вариант:</strong> {{ exercise.secondVariant }}</p>
+                <p><strong>Третий вариант:</strong> {{ exercise.thirdVariant }}</p>
+                <p><strong>Четвертый вариант:</strong> {{ exercise.fourthVariant }}</p>
+                <p><strong>Правильный ответ:</strong> {{ exercise.correctAnswer }}</p>
+                <p><strong>Курс:</strong> {{ exercise.course_id }}</p>
+                <p><strong>Автор:</strong> <span class="category">{{ exercise.difficulty }}</span></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

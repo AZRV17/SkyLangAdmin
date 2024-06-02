@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="profile-wrapper">
+        <h1 class="profile-title">Комментарий</h1>
+        <div class="profile-detail">
+            <h2>{{ comment.content }}</h2>
+            <div class="profile-detail">
+                <p><strong>Автор:</strong> {{ comment.author.login }}</p>
+                <p><strong>Курс:</strong> <span class="category">{{ comment.course_id }}</span></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

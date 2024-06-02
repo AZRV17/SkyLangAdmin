@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="profile-wrapper">
+        <h1 class="h1">Лекция</h1>
+        <div class="profile-detail">
+            <h1>{{ lecture.name }}</h1>
+            <div class="profile-detail">
+                <p><strong>Описание:</strong> {{ lecture.description }}</p>
+                <p><strong>Курс:</strong> <span class="category">{{ lecture.course.name }}</span></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
